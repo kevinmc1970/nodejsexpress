@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 
+var users = [];
+
+// simply tell express where statis files kept
 app.use(express.static('public'));
 app.get('/index.htm', function (req, res) {
    res.sendFile( __dirname + "/" + "index.htm" );
@@ -14,6 +17,7 @@ app.get('/process_get', function (req, res) {
    };
    console.log(response);
    res.end(JSON.stringify(response));
+   users.push(response);
 })
 
 
@@ -32,7 +36,8 @@ app.delete('/del_user', function (req, res) {
 // This responds a GET request for the /list_user page.
 app.get('/list_user', function (req, res) {
    console.log("Got a GET request for /list_user");
-   res.send('Page Listing');
+   // res.send('Page Listing');
+   res.send(users);
 })
 
 // This responds a GET request for abcd, abxcd, ab123cd, and so on
