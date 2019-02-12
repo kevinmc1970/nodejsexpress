@@ -42,7 +42,7 @@ app.get('/ab*cd', function(req, res) {
 })
 
 
-// just run node server.js to fire this up on localhost
+// just run node server.js to fire this up on localhost (or npm start)
 // https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm
 var server = app.listen(8081, function () {
    var host = server.address().address
