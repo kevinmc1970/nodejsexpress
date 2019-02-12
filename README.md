@@ -14,6 +14,8 @@ N.B. *** I created the git repo AFTER the code so node_modules was included - cr
 
 https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm
 
+Ive since added a mapping to read form data from a POST not a GET using body-parser
+
 
 
 

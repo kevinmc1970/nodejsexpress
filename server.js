@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+// for forms
+const bodyParser = require("body-parser");
 
 var users = [];
 
@@ -25,6 +27,21 @@ app.get('/process_get', function (req, res) {
 app.post('/', function (req, res) {
    console.log("Got a POST request for the homepage");
    res.send('Hello POST');
+})
+
+// use body-parser to get form data
+// same as get expect use body not query
+app.use(bodyParser.urlencoded({
+   extended: true
+}));
+app.post('/process_form', function(req, res) {
+   response = {
+      first_name:req.body.first_name,
+      last_name:req.body.last_name
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+   users.push(response);
 })
 
 // This responds a DELETE request for the /del_user page.
